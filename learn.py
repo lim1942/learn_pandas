@@ -42,7 +42,7 @@ import matplotlib as plt
 # print(df.describe())
 # 转置dataframe数据
 # print(df.T)
-# 按轴排序，降序，（列排序）
+# 按表头排序，降序，（列排序）
 # print(df.sort_index(axis=1, ascending=False))
 # 按某一列的值进行行排序,（行排序）
 # print(df.sort_values(by='B'))
@@ -265,11 +265,19 @@ import matplotlib as plt
 
 # ========================== 10 Categoricals ==========================
 # df = pd.DataFrame({"id":[1,2,3,4,5,6], "raw_grade":['a', 'b', 'b', 'a', 'a', 'e']})
-# # 新加一个列并更换数据类型
-# df["grade"] = df["raw_grade"].astype("category")
-# df["grade"].cat.categories = ["very good", "good", "very bad"]
-# df["grade"] = df["grade"].cat.set_categories(["very bad", "bad", "medium", "good", "very good"])
+# 新加一个列并更换数据类型
 # print(df)
+# 可以看到此时类标签的字符a,b,e ；类标签的集合为[a,b,e] 
+# 打印类标签的结果如下 
+# df["grade"] = df["raw_grade"].astype("category")
+# print(df['grade'])
+# df["grade"].cat.categories = ["very good", "good", "very bad"]
+# print(df['grade'])
+# 给categories赋值，可以改变类别标签。赋值的时候是按照顺序进行对应的。a对应very good，b对应good,c对应very bad。操作完成之后，原来的标签a就变成了very good标签。 
+# 此时类标签的集合为[“very good”, “good”, “very bad”]
+# 改变类别标签集合，操作过后数据的标签不变，但是标签的集合变为[“very bad”, “bad”, “medium”, “good”, “very good”]
+# df["grade"] = df["grade"].cat.set_categories(["very bad", "bad", "medium", "good", "very good"])
+# print(df['grade'])
 # print(df.sort_values(by="grade"))
 
 

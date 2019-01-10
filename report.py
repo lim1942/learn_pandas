@@ -21,9 +21,11 @@ class report:
 		self.call_record = pd.read_json('call_record.json',encoding='utf-8')
 		self.call_record['call_date'] = pd.to_datetime(self.call_record['call_date'])
 		self.report = {}
+		print(self.call_record[:1])
+		# print(self.call_record['call_type']==2)
+
 		# print(base_info)
 		# print(bill)
-		# d = call_record.loc[(call_record.other_mobile==13750870690)]
 
 
 	@staticmethod
