@@ -1,7 +1,4 @@
 import pandas as pd
-import numpy as np
-
-import time
 
 
 #设置打印展示输出
@@ -9,23 +6,16 @@ pd.set_option('display.max_rows',None)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width',10000)
 
-#读取json数据
-
 
 class report:
 
 
-	def __init__(self):
-		self.bill = pd.read_json('bill.json',encoding='utf-8')
-		self.base_info = pd.read_json('base_info.json',encoding='utf-8')
-		self.call_record = pd.read_json('call_record.json',encoding='utf-8')
+	def __init__(self,bill,base_info,call_record):
+		self.bill = pd.read_json(bill)
+		self.base_info = pd.read_json(base_info)
+		self.call_record = pd.read_json(call_record)
 		self.call_record['call_date'] = pd.to_datetime(self.call_record['call_date'])
 		self.report = {}
-		print(self.call_record[:1])
-		# print(self.call_record['call_type']==2)
-
-		# print(base_info)
-		# print(bill)
 
 
 	@staticmethod
@@ -47,10 +37,7 @@ class report:
 				})
 
 		df = call_record.groupby('other_mobile').apply(handle)
-
-		print(df)
-
-
+		return report.to_python_obj_by_rows(df)
 
 	@staticmethod
 	def contact_area_data(call_record):
@@ -96,24 +83,31 @@ class report:
 		return report.to_python_obj_by_rows(df)
 
 
-
 	def gen_report(self):
-		a = time.time()
-		call_contact_detail = self.call_contact_detail(self.call_record)
-		print(time.time()-a)
-		# contact_area_data = self.contact_area_data(self.call_record)
-		# print(contact_area_data)
-		# trip_record = self.trip_record(self.call_record)
-		# action_watch = self.action_watch(self.call_record)
+		# self.report['call_contact_detail'] = self.call_contact_detail(self.call_record)
+		self.report['contact_area_data'] = self.contact_area_data(self.call_record)
+		self.report['trip_record'] = self.trip_record(self.call_record)
+		self.report['action_watch'] = self.action_watch(self.call_record)
 
+		return self.report
+
+
+
+def main(base_info,bill,call_record):
+	obj = report(base_info,bill,call_record)
+	res = obj.gen_report()
+	print(res)
+	return res
 
 
 if __name__ == '__main__':
-	obj = report()
-	obj.gen_report()
-
-
-
+	with open('base_info.json',encoding='utf-8') as f:
+		base_info = f.read()
+	with open('bill.json',encoding='utf-8') as f:
+		bill = f.read()		
+	with open('call_record.json',encoding='utf-8') as f:
+		call_record = f.read()			
+	main(base_info, bill, call_record)
 
 
 
