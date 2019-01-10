@@ -1,0 +1,61 @@
+[{
+	"mobile": "18680325804",
+	"fixed_fee": 19.0,
+	"profession_fee": 0.2,
+	"call_fee": 0.5,
+	"message_fee": 0,
+	"network_fee": 12.0,
+	"other_fee": 0,
+	"all_fee": 31.7,
+	"date": "2018-11-01"
+}, {
+	"mobile": "18680325804",
+	"fixed_fee": 19.0,
+	"profession_fee": 0,
+	"call_fee": 5.7,
+	"message_fee": 0,
+	"network_fee": 12.0,
+	"other_fee": 0,
+	"all_fee": 36.7,
+	"date": "2018-10-01"
+}, {
+	"mobile": "18680325804",
+	"fixed_fee": 19.0,
+	"profession_fee": 0.6,
+	"call_fee": 0,
+	"message_fee": 0,
+	"network_fee": 2.0,
+	"other_fee": 0,
+	"all_fee": 21.6,
+	"date": "2018-09-01"
+}, {
+	"mobile": "18680325804",
+	"fixed_fee": 19.0,
+	"profession_fee": 0,
+	"call_fee": 0,
+	"message_fee": 0,
+	"network_fee": 0,
+	"other_fee": 0,
+	"all_fee": 19.0,
+	"date": "2018-08-01"
+}, {
+	"mobile": "18680325804",
+	"fixed_fee": 19.0,
+	"profession_fee": 0.1,
+	"call_fee": 0,
+	"message_fee": 0,
+	"network_fee": 7.9,
+	"other_fee": 0,
+	"all_fee": 27.0,
+	"date": "2018-07-01"
+}, {
+	"mobile": "18680325804",
+	"fixed_fee": 19.0,
+	"profession_fee": 0.6,
+	"call_fee": 12.8,
+	"message_fee": 0,
+	"network_fee": 6.0,
+	"other_fee": 0,
+	"all_fee": 38.4,
+	"date": "2018-06-01"
+}]
