@@ -1,0 +1,9 @@
+*.gz
+*.pyc
+venv
+*.sh
+.idea
+*.DS_Store
+*.bak
+*.rdb
+*.log
